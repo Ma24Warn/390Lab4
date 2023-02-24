@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta charset="UTF-8">
+	<title>Lab 4</title>
+	<link rel="stylesheet" href="style.css">
+	<body>
+	
+		<form id="insert_form"></form>
+		<span id="error_message"></span>
+	
+		<script src="functions.js"></script>
+		<script>
+			var newForm = document.querySelector("#insert_form");
+
+			newForm.appendChild(makeInput("text","username","","User Name: "));
+	
+			
+
+			newForm.appendChild(makeInput("password", "passwd", "", "Password: " ));
+
+			newForm.appendChild(makeInput("text", "email", "", "Email: " ));
+
+			newForm.appendChild(makeInput("date", "birth", "birth", "Date of Birth: " ));
+
+			newForm.appendChild(makeSelect("age",makeArray(18,68),"Age: "));
+
+			newForm.appendChild(makeSelect("birth", makeArray(0,50), "Years of Experience: " ));
+
+			newForm.appendChild(makeInput("submit","insert_button","Insert"));
+
+			newForm.appendChild(makeInput("reset","insert_button","Reset"));
+
+			
+
+
+
+		</script>
+	</body>
+</html>
