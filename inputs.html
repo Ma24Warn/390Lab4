@@ -22,7 +22,7 @@
 
 			newForm.appendChild(makeInput("date", "birth", "birth", "Date of Birth: " ));
 
-			newForm.appendChild(makeSelect("age",makeArray(18,68),"Age: "));
+			newForm.appendChild(makeSelect("age", makeArray(18,68),"Age: "));
 
 			newForm.appendChild(makeSelect("birth", makeArray(0,50), "Years of Experience: " ));
 
@@ -30,7 +30,79 @@
 
 			newForm.appendChild(makeInput("reset","insert_button","Reset"));
 
-			
+
+			newForm.addEventListener("submit", checkInputs);
+
+
+			document.querySelector("#username").addEventListener("change", function(event) {
+				if (this.value == "root" || this.value == "admin") {
+					this.parentNode.setAttribute("class", "error");
+					document.querySelector("#error_message").innerHTML = "Invalid username";
+					document.querySelector("#insert_button").disabled = true;
+					event.preventDefault();
+				}
+				else {
+					this.parentNode.setAttribute("class", "");
+					document.querySelector("#error_message").innerHTML = "";
+					document.querySelector("#insert_button").disabled = false;
+				}
+			});
+
+
+			document.querySelector("#passwd").addEventListener("change", function(event) {
+				if (this.value.length < 10 ) {
+					this.parentNode.setAttribute("class", "error");
+					document.querySelector("#error_message").innerHTML = "Password needs to be 10 or more characters long";
+					document.querySelector("#insert_button").disabled = true;
+					event.preventDefault();
+				}
+				else {
+					this.parentNode.setAttribute("class", "");
+					document.querySelector("#error_message").innerHTML = "";
+					document.querySelector("#insert_button").disabled = false;
+				}
+			});
+
+
+
+
+
+
+
+
+
+
+
+			/* below is unfinished. Not sure what to do for it yet */
+
+			document.querySelector("#age").addEventListener("change", function(event) {
+				if (this.option.value < 18) {
+					this.parentNode.setAttribute("class", "error");
+					document.querySelector("#error_message").innerHTML = "Age must be greater than 18";
+					document.querySelector("#insert_button").disabled = true;
+					event.preventDefault();
+				}
+				else {
+					this.parentNode.setAttribute("class", "");
+					document.querySelector("#error_message").innerHTML = "";
+					document.querySelector("#insert_button").disabled = false;
+				}
+			});
+
+			document.querySelector("#birth").addEventListener("change", function(event) {
+				if (this.option.value < 18) {
+					this.parentNode.setAttribute("class", "error");
+					document.querySelector("#error_message").innerHTML = "Years of Experience must be greater than 18";
+					document.querySelector("#insert_button").disabled = true;
+					event.preventDefault();
+				}
+				else {
+					this.parentNode.setAttribute("class", "");
+					document.querySelector("#error_message").innerHTML = "";
+					document.querySelector("#insert_button").disabled = false;
+				}
+			});
+
 
 
 

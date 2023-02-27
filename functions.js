@@ -86,3 +86,19 @@ function makeArray(startVal, endVal) {
 
 
 }
+
+function checkInputs(event) {
+	var inputsArray = document.querySelectorAll("div");
+
+	for (var x = 0; x < inputsArray.length; x++) {
+		if (inputsArray[x].value == "") {
+			this.parentNode.setAttribute("class", "error")
+			event.preventDefault(event);
+		}
+		else {
+			this.parentNode.setAttribute("class", "")
+		}
+
+	}
+
+}
