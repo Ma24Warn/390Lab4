@@ -29,9 +29,9 @@
 
             function isLegalPassword(event) {
 
-                var digitFound;
-                var upperCaseFound;
-                var lowerCaseFound;
+                var digitFound = false;
+                var upperCaseFound = false;
+                var lowerCaseFound = false;
                 var pword = document.querySelector("#pWord").value;
                 var pword2 = document.querySelector("#pWord2").value;
                 var cur;
@@ -39,13 +39,13 @@
                 for (var x = 0; x < pword.length; x++) {
                     cur = pword.charAt(x);
 
-                    if (cur > '0' && cur < '9') {
+                    if (cur >= '0' && cur <= '9') {
                         digitFound = true;
                     }
-                    if (cur > 'a' && cur <'z') {
+                    else if (cur >= 'a' && cur <='z') {
                         lowerCaseFound = true;
                     }
-                    if (cur > 'A' && cur <'Z') {
+                    else if (cur >= 'A' && cur <='Z') {
                         upperCaseFound = true;
                     }
 
@@ -63,14 +63,14 @@
                 if (digitFound == false) {
                     errorString += "Digit not found ";
                 }
-                if (pword.length < 8) {
+                if (pword.length < 8 || pword2.length < 8) {
                     errorString += "Password is too short ";
                 }
                 if (pword !== pword2) {
                     errorString += "Passwords do not match ";
                 }
 
-                if (pword === pword2 && upperCaseFound == true && lowerCaseFound == true && digitFound == true && pword.length < 8) {
+                if (pword === pword2 && upperCaseFound == true && lowerCaseFound == true && digitFound == true && pword.length > 8) {
                     return true;
                 }
                 else {
